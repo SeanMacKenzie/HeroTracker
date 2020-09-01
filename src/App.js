@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+// import { SearchBar } from ''
+
 import './App.css';
+import Comics from "./components/Comics";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    search: '',
+  };
+
+  updateSearch = (search) => {
+    this.setState({ search });
+  }
+
+  render() {
+    const { search } = this.state;
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Hero Tracker</h1>
+        </header>
+        {/* <SearchBar placeholder='Type Here...' onChangeText={this.updateSearch} value={search} /> */}
+        <Comics />
+      </div>
+    );
+  }
 }
-
-export default App;
