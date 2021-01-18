@@ -1,7 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 
-function Comics(props) {
-    return <div>This is where we see comics</div>;
+const Comics = ({comicList=[]}) => {
+    return (
+        <div>
+        { comicList.map((data,index) => {
+            if(data) {
+                return (
+                    <div key={data.name}>
+                        <h1>{data.name}</h1>
+                    </div>
+                )
+            }
+            return null
+        }) }
+        </div>
+    );
 }
 
 export default Comics;
